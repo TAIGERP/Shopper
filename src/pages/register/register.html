@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Create an Account
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+  <ion-row>
+<ion-col width-50>
+<ion-item>
+      <ion-label stacked>Name</ion-label>
+      <ion-input formControlName="FirstName" type="text" placeholder="First Name"></ion-input>
+    </ion-item>
+    </ion-col>
+    <ion-col width-50>
+<ion-item>
+      <ion-label stacked>Last Name</ion-label>
+      <ion-input formControlName="LastName" type="text" placeholder="Last Name"></ion-input>
+    </ion-item>
+</ion-col>
+</ion-row>
+<ion-row>
+<ion-col width-50>
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input formControlName="email" type="email" placeholder="Your email address"
+        [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">
+      <p>Please enter a valid email.</p>
+    </ion-item>
+</ion-col>
+<ion-col width-50>
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input formControlName="password" type="password"  placeholder="Your password"
+        [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">
+      <p>Your password needs more than 6 characters.</p>
+    </ion-item>
+ </ion-col>
+</ion-row>
+<ion-row>
+<ion-col width-50>
+    <ion-item>
+      <ion-label stacked>Adress</ion-label>
+      <ion-input formControlName="Adress" type="text" placeholder="Home Adress"></ion-input>
+    </ion-item>
+</ion-col>
+<ion-col width-50>
+<ion-item >
+      <ion-label stacked>Telephone</ion-label>
+      <ion-input formControlName="Tel" type="text" placeholder="Telephone Number"></ion-input>
+    </ion-item>
+</ion-col>
+</ion-row>
+
+
+
+
+    <button ion-button block type="submit">
+      Create an Account
+    </button>
+
+  </form>
+
+</ion-content>
